@@ -1,6 +1,6 @@
 import firebase from "./firebase";
 import { getDatabase, ref, onValue, push, remove } from "firebase/database";
-// import Form from "./Form";
+import Form from "./Form";
 import { useState, useEffect,  } from "react"
 import './App.css';
 import Restaurants from "./Restaurants";
@@ -21,7 +21,7 @@ function App() {
     const newState =[];
 
     const data = response.val()
-    // console.log(data)
+   
     
     for (let fbkey in data){
       newState.push({
@@ -30,7 +30,6 @@ function App() {
       })
     }
     setCities(newState)
-    // console.log(newState[0].name.restaurants)
     })
   }, [])
 
@@ -46,7 +45,6 @@ function App() {
     const name = { name: userCitiesInput}
 
     push(cityRef, name )
-    // console.log(userCitiesInput)
     setUserCitiesInput("")
   }
 
@@ -54,7 +52,6 @@ function App() {
     const database = getDatabase(firebase)
     const cityRef = ref(database, `cities/${cityId}`)
 
-    // console.log(cityId)
     remove(cityRef )
   }
 
@@ -78,7 +75,7 @@ function App() {
             <li key={city.key}>
               <h2>{city.name.name}</h2>
               <button onClick={() => handleRemoveCity(city.key)}>Delete City</button>
-              <Restaurants restaurants={cities[cityIndex].name.restaurants}/>
+              <Restaurants cityId = {city.key} restaurants={cities[cityIndex].name.restaurants}/>
             </li>
           )
           

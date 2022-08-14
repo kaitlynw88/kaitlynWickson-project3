@@ -1,15 +1,14 @@
-// function Form (props){
-//     return(
-//         <form action ="submit">
-//             <label htmlFor="cityName">City Name</label>
-//             <input type="text" 
-//             id="cityName"
-//             onChange={props.handleCityChange}
-//             value={props.userCitiesInput}
-//             />
-//             <button onClick ={props.handleCitySubmit}>Submit</button>
-//         </form>
-//     )
-// }
+// import firebase from "./firebase";
+// import { getDatabase, ref, push, remove, onValue } from "firebase/database";
 
-// export default Form;
+function Form (props){
+    const userUrl = props.url
+
+    return(
+        <div>
+            <a href={userUrl}>Url link</a>
+        </div>
+    )
+}
+
+export default Form;

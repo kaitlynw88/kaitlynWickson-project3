@@ -32,7 +32,7 @@ function Restaurants(props){
             push(restaurantRef, restaurantData)
             setUserRestaurantInput("")
         }else{
-            alert(`Whats your favourite restaurant in: ${userCity.name}`)
+            alert(`What's your favourite restaurant in: ${userCity.name}?`)
         }
     }
 

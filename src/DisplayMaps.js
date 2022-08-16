@@ -4,6 +4,7 @@ function DisplayMaps (props){
 
     return(
         <a href={`http://www.google.com/maps/search/${name}+${city.name}`}>Find it on google maps</a>
+        
     )
 }
 

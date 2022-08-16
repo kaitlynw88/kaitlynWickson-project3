@@ -72,10 +72,6 @@ h3{
   justify-content: space-between;
 }
 
-/* .restaurantLabel{
-  margin-bottom: 25px;
-} */
-
 .info{
   display: flex;
   justify-content: space-between;
@@ -107,6 +103,15 @@ input{
   margin: 0 15px;
   height:18px;
 }
+.display{
+  margin:0;
+  padding:0;
+}
+
+.display p, .display a{
+  text-align: center;
+
+}
 
 footer{
   background-color:rgba(31, 22, 22);
@@ -132,16 +137,31 @@ footer p:first-child{
 }
 
 @media(max-width: 600px){
-  /* html{
-    font-size: 100%;
-  } */
-  /* header{
-    align-items: center;
-  } */
   .info{
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 15px;
+  }
+
+  .display{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .display a, .display p{
+    text-align: left;
+  }
+}
+
+@media(max-width: 400px){
+  form {
+    flex-direction: column;
+  }
+  .restaurantList{
+    flex-direction: column;
+    align-items: center;
+  }
+  .info{
+    flex-direction: column;
   }
 
 }

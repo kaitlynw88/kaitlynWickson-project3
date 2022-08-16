@@ -16,7 +16,11 @@ function Restaurants(props){
     }
 
     const handleSelectChange = (e) =>{
-        setRestaurantTypeSelect(e.target.value)
+        if(e.target.value){
+            setRestaurantTypeSelect(e.target.value)
+        }else{
+            setRestaurantTypeSelect("other")
+        }
     }
 
     const handleRemoveRestaurant = (restaurantId) => {
@@ -70,10 +74,10 @@ function Restaurants(props){
                     id="type" 
                     onChange={handleSelectChange} 
                     value={restaurantTypeSelect}>
-                        <option value="other">Other</option>
+                        <option selected="selected" value="restaurant">Restaurant</option>
+                        <option  value="other">Other</option>
                         <option value="cafe">Cafe</option>
                         <option value="bar">Bar/Pub</option>
-                        <option value="restaurant">Restaurant</option>
                 </select>
                 
                     <button onClick={handleRestaurantSubmit}>Submit</button>

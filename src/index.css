@@ -88,6 +88,8 @@ h3{
   text-transform: capitalize;
 }
 form{
+  display:flex;
+  align-items: center;
   margin:25px 0 50px 0;
   padding:0;
 }
@@ -97,6 +99,7 @@ form label{
 
 input{
   margin: 0 15px;
+  height:18px;
 }
 
 footer{
@@ -107,6 +110,9 @@ footer p{
   padding: 25px 0;
   margin:0 auto;
   text-align: center;
+}
+footer p:first-child{
+  padding-bottom:0;
 }
 
 @media(max-width: 800px){

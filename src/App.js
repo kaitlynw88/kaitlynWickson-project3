@@ -40,9 +40,13 @@ function App() {
     const cityRef = ref(database, "cities")
 
     const name = { name: userCitiesInput}
-
-    push(cityRef, name )
-    setUserCitiesInput("")
+    // check to see if userCities input is truthy, if so, push to database
+    if (userCitiesInput){
+      push(cityRef, name )
+      setUserCitiesInput("")
+    }else{
+      alert("Please type in a city")
+    }
   }
 
   const handleRemoveCity = (cityId) =>{
@@ -88,6 +92,7 @@ function App() {
       </main>
       <footer>
         <p>Created at Juno College 2022</p>
+        <p>Made with React and Firebase</p>
       </footer>
     </div>
   );

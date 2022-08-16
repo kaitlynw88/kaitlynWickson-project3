@@ -21,20 +21,21 @@ function Restaurants(props){
         
     }
     
-    const handleRestaurantSubmit = (e, restaurantInfo) => {
+    const handleRestaurantSubmit = (e) => {
         e.preventDefault()
         const database = getDatabase(firebase)
         const restaurantRef = ref(database, `cities/${props.cityId}/restaurants`)
         
         // make an object to store the restaurant name
         const restaurantData = { name:userRestaurantInput}
-        
-        push(restaurantRef, restaurantData)
-        setUserRestaurantInput("")
+        if(userRestaurantInput){
+            push(restaurantRef, restaurantData)
+            setUserRestaurantInput("")
+        }else{
+            alert(`Whats your favourite restaurant in: ${userCity.name}`)
+        }
     }
 
-    
-    
     useEffect( ()=>{
         const restaurantInfo = []
     

@@ -1,5 +1,5 @@
 import firebase from "./firebase";
-import { getDatabase, ref, push, remove, update } from "firebase/database";
+import { getDatabase, ref, push, remove, update, set } from "firebase/database";
 import Form from "./Form";
 import { useState, useEffect, } from "react"
 
@@ -30,9 +30,13 @@ function Restaurants(props){
         e.preventDefault()
         const database = getDatabase(firebase)
         const restaurantRef = ref(database, `cities/${props.cityId}/restaurants`)
-        // const name = { name: userRestaurantInput }
         
-        push(restaurantRef, `${restaurantInfo}`)
+        // make an object to store the restaurant name and url
+        const restaurantData = { name:userRestaurantInput, url:userUrlInput}
+        
+        push(restaurantRef, restaurantData)
+        setUserRestaurantInput("")
+        setUserUrlInput("")
     }
 
     
@@ -71,9 +75,9 @@ function Restaurants(props){
                     {restaurants.map((restaurant)=>{
                       return(
                         
-                            <li key={restaurant.restaurantKey}>
-                              <Form url={restaurant.restaurantUrl}/>
+                            <li className="restaurantList" key={restaurant.restaurantKey}>
                                 <p>{restaurant.restaurantName}</p>
+                                <Form url={restaurant.restaurantUrl}/>
                                 <button onClick={() => {handleRemoveRestaurant(restaurant.restaurantKey) }}>Delete Restaurant</button> 
                             </li>
                       )

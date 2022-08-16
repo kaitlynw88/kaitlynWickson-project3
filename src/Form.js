@@ -2,12 +2,10 @@
 // import { getDatabase, ref, push, remove, onValue } from "firebase/database";
 
 function Form (props){
-    const userUrl = props.url
+    console.log(props.url)
 
     return(
-        <div>
-            <a href={userUrl}>Url link</a>
-        </div>
+        <a href={props.url}>{props.url}</a>
     )
 }
 

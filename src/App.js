@@ -56,8 +56,9 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="wrapper">
       <h1>Restaurant Planner</h1>
+      <h2>Cities you want to go to, places you want to eat</h2>
 
       <form action="submit">
         <label htmlFor="cityName">City Name</label>
@@ -72,8 +73,8 @@ function App() {
       <ul>
         {cities.map((city, cityIndex)=>{
           return(
-            <li key={city.key}>
-              <h2>{city.name.name}</h2>
+            <li className="cityName" key={city.key}>
+              <h3>{city.name.name}</h3>
               <button onClick={() => handleRemoveCity(city.key)}>Delete City</button>
               <Restaurants cityId = {city.key} restaurants={cities[cityIndex].name.restaurants}/>
             </li>

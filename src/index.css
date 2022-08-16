@@ -11,6 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+input{
+  padding:0;
+  margin:0;
+}
+label {
+  padding: 0;
+  margin: 0;
+}
 
 .wrapper{
   max-width: 1280px;
@@ -23,25 +31,105 @@ html{
 ul{
   list-style: none;
   padding:0;
-  margin:0
+  margin:0;
+  margin-bottom: 25px;
 }
 
 header{
+  background-image:url("../public/simpleTravelBanner.jpg");
+  background-position: center;
+  height:80vh;
+}
+header .wrapper{
+  padding-right: 50px;
   display:flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: center;
+  height:100%;
 }
 h1{
+  color:rgba(31, 22, 22); 
   font-size: 3.25rem;
+  text-shadow: 3px 2px black;
 }
-
-/* .cityName{
+.cityInfo{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-} */
+  padding: 10px 0;
+}
+h3{
+  font-size: 1.75rem;
+  margin:0;
+  margin-right: 25px;
+}
 
 .restaurantList{
   border-bottom: 2px solid black;
+  display:flex;
+  margin-bottom:10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* .restaurantLabel{
+  margin-bottom: 25px;
+} */
+
+.info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info p{
+  margin-right: 25px;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+}
+form{
+  margin:25px 0 50px 0;
+  padding:0;
+}
+form label{
+  font-size: 2rem;
+}
+
+input{
+  margin: 0 15px;
+}
+
+footer{
+  background-color:rgba(31, 22, 22);
+  color:white;
+}
+footer p{
+  padding: 25px 0;
+  margin:0 auto;
+  text-align: center;
+}
+
+@media(max-width: 800px){
+  header .wrapper{
+    padding-right: 0;
+    text-align: center;
+  }
+  /* h1, h2{
+    text-align: center;
+  } */
+}
+
+@media(max-width: 600px){
+  /* html{
+    font-size: 100%;
+  } */
+  /* header{
+    align-items: center;
+  } */
+  .info{
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+
 }

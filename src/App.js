@@ -53,13 +53,15 @@ function App() {
   }
 
   return (
-    <div className="wrapper">
+    <div>
       <header>
-        <h1>Restaurant Planner</h1>
-        <h2>Cities you want to go to, places you want to eat</h2>
+        <div className="wrapper">
+          <h1>Restaurant Planner</h1>
+          <h2>Cities you want to go to, places you want to eat</h2>
+        </div>
       </header>
 
-      <main>
+      <main className="wrapper">
         <form action="submit">
           <label htmlFor="cityName">City Name</label>
             <input type="text"
@@ -74,12 +76,13 @@ function App() {
           {cities.map((city, cityIndex)=>{
             return(
               <li className="cityName" key={city.key}>
-               <h3>{city.name.name}</h3>
-                <button onClick={() => handleRemoveCity(city.key)}>Delete City</button>
+                <div className="cityInfo">
+                  <h3>{city.name.name}</h3>
+                  <button onClick={() => handleRemoveCity(city.key)}>Delete City</button>
+                </div>
                 <Restaurants cityId = {city.key} userCity={city.name} restaurants={cities[cityIndex].name.restaurants}/>
               </li>
           )
-          
           })}
         </ul>
       </main>

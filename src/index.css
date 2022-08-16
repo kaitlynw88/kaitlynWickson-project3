@@ -81,10 +81,16 @@ h3{
   justify-content: space-between;
   align-items: center;
 }
+.info div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+}
 
 .info p{
   margin-right: 25px;
-  font-size: 1.25rem;
+  font-size: 1rem;
   text-transform: capitalize;
 }
 form{

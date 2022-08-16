@@ -1,5 +1,5 @@
 import firebase from "./firebase";
-import { getDatabase, ref, push, remove, update, set } from "firebase/database";
+import { getDatabase, ref, push, remove} from "firebase/database";
 import Form from "./Form";
 import { useState, useEffect, } from "react"
 

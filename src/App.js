@@ -1,6 +1,5 @@
 import firebase from "./firebase";
 import { getDatabase, ref, onValue, push, remove } from "firebase/database";
-import Form from "./Form";
 import { useState, useEffect,  } from "react"
 import './App.css';
 import Restaurants from "./Restaurants";
@@ -12,7 +11,6 @@ function App() {
   // set a state for users input for Cities and Restaurants
   const [userCitiesInput, setUserCitiesInput] = useState("")
 
-  
   useEffect( ()=>{
     const database = getDatabase(firebase)
     const dbRef = ref(database,"cities")
@@ -21,7 +19,6 @@ function App() {
     const newState =[];
 
     const data = response.val()
-   
     
     for (let fbkey in data){
       newState.push({
@@ -57,31 +54,38 @@ function App() {
 
   return (
     <div className="wrapper">
-      <h1>Restaurant Planner</h1>
-      <h2>Cities you want to go to, places you want to eat</h2>
+      <header>
+        <h1>Restaurant Planner</h1>
+        <h2>Cities you want to go to, places you want to eat</h2>
+      </header>
 
-      <form action="submit">
-        <label htmlFor="cityName">City Name</label>
-        <input type="text"
-          id="cityName"
-          onChange={handleCityChange}
-          value={userCitiesInput}
-        />
-        <button onClick={handleCitySubmit}>Submit</button>
-      </form>
+      <main>
+        <form action="submit">
+          <label htmlFor="cityName">City Name</label>
+            <input type="text"
+            id="cityName"
+            onChange={handleCityChange}
+            value={userCitiesInput}
+          />
+          <button onClick={handleCitySubmit}>Submit</button>
+        </form>
 
-      <ul>
-        {cities.map((city, cityIndex)=>{
-          return(
-            <li className="cityName" key={city.key}>
-              <h3>{city.name.name}</h3>
-              <button onClick={() => handleRemoveCity(city.key)}>Delete City</button>
-              <Restaurants cityId = {city.key} restaurants={cities[cityIndex].name.restaurants}/>
-            </li>
+        <ul>
+          {cities.map((city, cityIndex)=>{
+            return(
+              <li className="cityName" key={city.key}>
+               <h3>{city.name.name}</h3>
+                <button onClick={() => handleRemoveCity(city.key)}>Delete City</button>
+                <Restaurants cityId = {city.key} userCity={city.name} restaurants={cities[cityIndex].name.restaurants}/>
+              </li>
           )
           
-        })}
-      </ul>
+          })}
+        </ul>
+      </main>
+      <footer>
+        <p>Created at Juno College 2022</p>
+      </footer>
     </div>
   );
 }

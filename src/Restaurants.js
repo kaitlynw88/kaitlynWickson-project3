@@ -7,16 +7,15 @@ function Restaurants(props){
     const [userRestaurantInput, setUserRestaurantInput] = useState("")
     const [restaurants, setRestaurants] = useState([])
 
-    const [userUrlInput, setUserUrlInput] = useState("")
-    const [urls, setUrls] = useState("")
+    const userCity = props.userCity
 
     const handleRestaurantChange = (e) => {
         setUserRestaurantInput(e.target.value)
     }
 
-    const handleUrlChange =(e) =>{
-        setUserUrlInput(e.target.value)
-    }
+    // const handleUrlChange =(e) =>{
+    //     setUserUrlInput(e.target.value)
+    // }
 
     const handleRemoveRestaurant = (restaurantId) => {
         const database = getDatabase(firebase)
@@ -32,11 +31,11 @@ function Restaurants(props){
         const restaurantRef = ref(database, `cities/${props.cityId}/restaurants`)
         
         // make an object to store the restaurant name and url
-        const restaurantData = { name:userRestaurantInput, url:userUrlInput}
+        const restaurantData = { name:userRestaurantInput}
         
         push(restaurantRef, restaurantData)
         setUserRestaurantInput("")
-        setUserUrlInput("")
+        // setUserUrlInput("")
     }
 
     
@@ -48,7 +47,7 @@ function Restaurants(props){
             const restaurantObj ={
                 restaurantKey:restaurant,
                 restaurantName: props.restaurants[restaurant].name,
-                restaurantUrl:props.restaurants[restaurant].url
+                // restaurantUrl:props.restaurants[restaurant].url
             }
             restaurantInfo.push(restaurantObj)
         }
@@ -64,20 +63,21 @@ function Restaurants(props){
                     onChange={handleRestaurantChange}
                     value={userRestaurantInput}
                 />
-            <label htmlFor="restaurantUrl">Url</label>
+            {/* <label htmlFor="restaurantUrl">Url</label>
                 <input type="text"
                     id="restaurantUrl"
                     onChange={handleUrlChange}
                     value={userUrlInput}
-            />
+                /> */}
             
                   <ul>
+                    {/* Map through eacth restaurant in the restaurant state */}
                     {restaurants.map((restaurant)=>{
                       return(
-                        
+                            // return the key and name from each restaurant item
                             <li className="restaurantList" key={restaurant.restaurantKey}>
                                 <p>{restaurant.restaurantName}</p>
-                                <Form url={restaurant.restaurantUrl}/>
+                                <Form name={restaurant.restaurantName} city={userCity}/>
                                 <button onClick={() => {handleRemoveRestaurant(restaurant.restaurantKey) }}>Delete Restaurant</button> 
                             </li>
                       )

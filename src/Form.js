@@ -1,11 +1,11 @@
-// import firebase from "./firebase";
-// import { getDatabase, ref, push, remove, onValue } from "firebase/database";
-
 function Form (props){
-    console.log(props.url)
+    const name = props.name
+    const city = props.city
 
     return(
-        <a href={props.url}>{props.url}</a>
+        <a href={`http://www.google.com/maps/search/${name}+${city.name}`}>Find it on google maps</a>
+
+
     )
 }
 

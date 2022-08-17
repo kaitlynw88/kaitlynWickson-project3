@@ -19,6 +19,10 @@ label {
   padding: 0;
   margin: 0;
 }
+p{
+  padding:0;
+  margin:0;
+}
 
 .wrapper{
   max-width: 1280px;
@@ -48,10 +52,17 @@ header .wrapper{
   justify-content: center;
   height:100%;
 }
+.title{
+  background-color:rgba(1, 61, 77, 0.9);
+  padding:10px;
+  border-radius: 15px;
+}
 h1{
-  color:rgba(31, 22, 22); 
+  color:white; 
   font-size: 3.25rem;
-  text-shadow: 3px 2px black;
+}
+h2{
+  color:white;
 }
 .cityInfo{
   display: flex;
@@ -76,20 +87,15 @@ h3{
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.info div{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 75%;
+  padding:10px 0;
 }
 
 .info p{
   margin-right: 25px;
   font-size: 1rem;
   text-transform: capitalize;
-  margin-left: 25px;
 }
+
 form{
   display:flex;
   align-items: center;
@@ -104,14 +110,16 @@ input{
   margin: 0 15px;
   height:18px;
 }
-.display{
-  margin:0;
-  padding:0;
+select{
+  margin-right: 15px;
 }
-
-.display p, .display a{
+.display{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+.display a, .display p{
   text-align: center;
-
 }
 
 footer{
@@ -132,25 +140,30 @@ footer p:first-child{
     padding-right: 0;
     text-align: center;
   }
-  /* h1, h2{
-    text-align: center;
-  } */
 }
 
 @media(max-width: 600px){
   .info{
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
     margin-bottom: 15px;
   }
 
+
   .display{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
   }
+
   .display a, .display p{
     text-align: left;
   }
+  .display a{
+    margin: 15px 0;
+  }
+  
 }
 
 @media(max-width: 400px){

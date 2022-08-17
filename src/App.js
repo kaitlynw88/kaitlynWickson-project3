@@ -60,8 +60,10 @@ function App() {
     <div>
       <header>
         <div className="wrapper">
-          <h1>Restaurant Planner</h1>
-          <h2>Cities you want to go to, places you want to eat</h2>
+          <div className="title">
+            <h1>Restaurant Planner</h1>
+            <h2>Cities you want to go to, places you want to eat</h2>
+          </div>
         </div>
       </header>
 

@@ -1,8 +1,13 @@
 function DisplayMaps (props){
     const name = props.name
     const city = props.city
-    const type = props.type
-    console.log(type)
+    let type = props.type
+
+    if(type === ""){
+        type = "Restaurant"
+    }else{
+        type = props.type
+    }
 
     return(
         <div className="display">

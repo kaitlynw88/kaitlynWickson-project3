@@ -9,6 +9,7 @@ function Restaurants(props){
 
     const [restaurantTypeSelect, setRestaurantTypeSelect] = useState("")
 
+    // set a value for usercity for props
     const userCity = props.userCity
 
     const handleRestaurantChange = (e) => {
@@ -19,7 +20,7 @@ function Restaurants(props){
         if(e.target.value){
             setRestaurantTypeSelect(e.target.value)
         }else{
-            setRestaurantTypeSelect("other")
+            setRestaurantTypeSelect("Restaurant")
         }
     }
 
@@ -40,7 +41,7 @@ function Restaurants(props){
         if(userRestaurantInput){
             push(restaurantRef, restaurantData)
             setUserRestaurantInput("")
-            setRestaurantTypeSelect("other")
+            setRestaurantTypeSelect("Restaurant")
         }else{
             alert(`What's your favourite restaurant in: ${userCity.name}?`)
         }
